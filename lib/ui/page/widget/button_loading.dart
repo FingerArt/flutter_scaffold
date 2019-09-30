@@ -16,10 +16,10 @@ class _ButtonLoadingState extends State<ButtonLoading> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.onTap,
+      onTap: widget.isLoading ? null : widget.onTap,
       borderRadius: BorderRadius.all(Radius.circular(2)),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: BoxDecoration(
           border: Border.all(color: Theme.of(context).accentColor),
           borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -29,9 +29,12 @@ class _ButtonLoadingState extends State<ButtonLoading> {
           children: <Widget>[
             Offstage(
               offstage: !widget.isLoading,
-              child: ButtonProgressIndicator(color: Theme.of(context).accentColor),
+              child: Padding(
+                padding: EdgeInsets.only(right: 15),
+                child: ButtonProgressIndicator(color: Theme.of(context).accentColor),
+              ),
             ),
-            Text(widget.label),
+            Text(widget.label, style: TextStyle(fontSize: 16)),
           ],
         ),
       ),

@@ -4,7 +4,7 @@ import 'package:flutter_scaffold/core/routers.dart';
 import 'package:flutter_scaffold/ui/page/login_page.dart';
 
 void main() {
-  setUp();
+  setupGetIt();
   runApp(MyApp());
 }
 
