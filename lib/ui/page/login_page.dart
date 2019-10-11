@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scaffold/core/provider/base_view.dart';
+import 'package:flutter_scaffold/core/routers.dart';
 import 'package:flutter_scaffold/core/scoped_models/login_model.dart';
 import 'package:flutter_scaffold/ui/page/widget/button_loading.dart';
-import 'package:provider/provider.dart';
 
 /// 登陆页
 class LoginPage extends StatefulWidget {
@@ -19,9 +19,12 @@ class _LoginPageState extends State<LoginPage> {
 
   GlobalKey<FormState> _keyLoginForm = GlobalKey();
 
+  GlobalKey<ScaffoldState> _keyScaffold = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _keyScaffold,
       appBar: AppBar(
         title: Text("Flutter scaffold"),
       ),
@@ -94,7 +97,13 @@ class _LoginPageState extends State<LoginPage> {
 
   _onLoginTap(LoginModel model) async {
     if (_keyLoginForm.currentState.validate()) {
-      model.login(_usernameInputController.text, _passwordInputController.text);
+      var isOK = await model.login(_usernameInputController.text, _passwordInputController.text);
+      if (isOK) {
+        Navigator.of(context).pushReplacementNamed(ROUTE_HOME);
+      } else {
+        final snackBar = SnackBar(content: Text(model.errorMessage));
+        _keyScaffold.currentState?.showSnackBar(snackBar);
+      }
     }
   }
 }
