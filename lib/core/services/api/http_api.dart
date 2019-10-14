@@ -11,7 +11,7 @@ class HttpApi extends Api {
   }
 
   @override
-  Future<List<Article>> getArticles() {
+  Future<List<Article>> getArticles(int userId) {
     // TODO: implement getArticles
     return null;
   }

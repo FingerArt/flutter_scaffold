@@ -25,11 +25,17 @@ class BaseModel extends ChangeNotifier {
 
   bool get isBusy => state == ViewState.Busy;
 
+  bool get isNotBusy => state != ViewState.Busy;
+
   String get errorMessage => _errorMessage;
 
   bool get hasError => state == ViewState.Error;
 
   bool get isSuccess => state == ViewState.Success;
+
+  bool get isDataFetched => state == ViewState.DataFetched;
+
+  bool get isNoDataAvailable => state == ViewState.NoDataAvailable;
 
   @override
   void notifyListeners() {
@@ -44,25 +50,22 @@ class BaseModel extends ChangeNotifier {
   }
 
   /// 错误处理
-  Future<T> tryRun<T>(Future<T> Function() run) async {
-    try {
-      setState(ViewState.Busy);
-      T result = await run();
-      setState(ViewState.Success);
-      return result;
-    } on FriendlyHttpException catch (e) {
-      _log.e(e.readme(), e.message, e.stackTrace);
-      setState(ViewState.Error);
-      _errorMessage = e.readme();
-    } on Error catch (e) {
-      _log.w(e.toString(), null, e.stackTrace);
-      setState(ViewState.Error);
-      _errorMessage = e.toString();
-    } catch (e) {
-      _log.w(e.message);
-      setState(ViewState.Error);
-      _errorMessage = e.message;
+  catchError<T>(dynamic e) {
+    switch (e) {
+      case FriendlyHttpException:
+        _log.e(e.readme(), e.message, e.stackTrace);
+        setState(ViewState.Error);
+        _errorMessage = e.readme();
+        break;
+      case Error:
+        _log.e(e.readme(), e.message, e.stackTrace);
+        setState(ViewState.Error);
+        _errorMessage = e.readme();
+        break;
+      default:
+        _log.w(e.message);
+        setState(ViewState.Error);
+        _errorMessage = e.message;
     }
-    return null;
   }
 }

@@ -5,6 +5,8 @@ part 'user.g.dart';
 
 @JsonSerializable()
 class User {
+  @JsonKey(name: "id")
+  int id;
   @JsonKey(name: "username")
   String username;
   @JsonKey(name: "name")
@@ -14,7 +16,7 @@ class User {
   @JsonKey(name: "phoneNumber")
   String phoneNumber;
 
-  User({this.username, this.name, this.avatar, this.phoneNumber});
+  User({this.id, this.username, this.name, this.avatar, this.phoneNumber});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
@@ -22,6 +24,7 @@ class User {
 
   @override
   String toString() {
-    return 'User{username: $username, name: $name, avatar: $avatar, phoneNumber: $phoneNumber}';
+    return 'User{id: $id, username: $username, name: $name, avatar: $avatar, phoneNumber: $phoneNumber}';
   }
+
 }

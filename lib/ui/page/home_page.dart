@@ -6,7 +6,7 @@ import 'package:flutter_scaffold/core/routers.dart';
 class HomePage extends StatelessWidget {
   final List<Tetrad<Widget, String, List<Color>, String>> menus = [
     Tetrad(Icon(Icons.list, color: Colors.white), "文章列表(RefreshIndicator)", [Color(0xFFABDCFF), Color(0xFF0396FF)], ROUTE_ARTICLE_LIST),
-    Tetrad(Icon(Icons.list, color: Colors.white), "文章列表(CustomRefreshState)", [Color(0xFFFFE985), Color(0xFFFA742B)], ROUTE_ARTICLE_LIST),
+    Tetrad(Icon(Icons.list, color: Colors.white), "文章列表(CustomRefreshState)", [Color(0xFFFFE985), Color(0xFFFA742B)], ROUTE_ARTICLE_CUSTOM_LIST),
     Tetrad(Icon(Icons.palette, color: Colors.white), "绘图", [Color(0xFFFEB692), Color(0xFFEA5455)], ROUTE_HOME),
     Tetrad(Icon(Icons.settings, color: Colors.white), "设置", [Color(0xFFEE9AE5), Color(0xFF5961F9)], ROUTE_HOME),
   ];

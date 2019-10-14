@@ -13,7 +13,13 @@ class LoginModel extends BaseModel {
   /// [password] 密码
   Future<bool> login(String username, String password) async {
     _log.d("username: $username, password: $password");
-    await tryRun(() => _userService.login(username, password));
+    try {
+      setState(ViewState.Busy);
+      await _userService.login(username, password);
+      setState(ViewState.Success);
+    } catch (e) {
+      catchError(e);
+    }
     return isSuccess;
   }
 }

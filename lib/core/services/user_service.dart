@@ -6,7 +6,7 @@ import 'package:logger/logger.dart';
 /// 用户服务
 class UserService {
   var _api = getIt<Api>();
-  var log = getIt<Logger>();
+  var _log = getIt<Logger>();
 
   User currentUser;
 
@@ -14,5 +14,3 @@ class UserService {
     currentUser = await _api.login(username, password);
   }
 }
-
-class ServiceResult {}

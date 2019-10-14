@@ -11,8 +11,10 @@ abstract class Api {
   /// [User] 用户信息
   Future<User> login(String username, String password);
 
-  /// 获取文章列表
+  /// 获取用户的文章列表
+  ///
+  /// [userId] 用户ID
   ///
   /// [List<Article>] 文章列表
-  Future<List<Article>> getArticles();
+  Future<List<Article>> getArticles(int userId);
 }
