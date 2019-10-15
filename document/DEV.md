@@ -7,6 +7,17 @@
 flutter packages pub run build_runner build
 ```
 
+## 生成语言支持
+
+``` bash
+
+# 根据Dart中的字段生成ARB文件
+flutter packages pub run intl_translation:extract_to_arb --output-dir=lib/core/i10n lib/core/i10n/localization_intl.dart
+
+# 根据ARB文件生成Dart
+flutter packages pub run intl_translation:generate_from_arb --output-dir=lib/core/generated/i10n --no-use-deferred-loading lib/core/i10n/localization_intl.dart lib/core/i10n/intl_*.arb
+```
+
 ## 上线注意事项
 
 ### 1. git分支管理

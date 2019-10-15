@@ -1,0 +1,9 @@
+{
+  "@@locale": "zh",
+  "@@last_modified": "2019-10-15T19:10:28.345885",
+  "settingsLabel": "设置",
+  "@settingsLabel": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

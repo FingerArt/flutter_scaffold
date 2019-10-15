@@ -1,5 +1,6 @@
 import 'package:flutter_scaffold/core/scoped_models/article_model.dart';
 import 'package:flutter_scaffold/core/scoped_models/login_model.dart';
+import 'package:flutter_scaffold/core/scoped_models/settings_model.dart';
 import 'package:flutter_scaffold/core/services/api/api.dart';
 import 'package:flutter_scaffold/core/services/api/fake_api.dart';
 import 'package:flutter_scaffold/core/services/user_service.dart';
@@ -17,4 +18,5 @@ setupGetIt() {
   /// Factory
   getIt.registerFactory<LoginModel>(() => LoginModel());
   getIt.registerFactory<ArticleModel>(() => ArticleModel());
+  getIt.registerFactory<SettingsModel>(() => SettingsModel());
 }

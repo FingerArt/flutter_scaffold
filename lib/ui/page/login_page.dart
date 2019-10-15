@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               BaseView<LoginModel>(
                 builder: (ctx, model, child) => ButtonLoading(
-                  "登陆",
+                  "登录",
                   isLoading: model.isBusy,
                   onTap: () => _onLoginTap(model),
                 ),
