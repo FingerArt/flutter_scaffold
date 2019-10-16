@@ -38,3 +38,32 @@ class _BaseViewState<T extends BaseModel> extends State<BaseView<T>> {
     );
   }
 }
+
+class BaseView2<F extends BaseModel, S extends BaseModel> extends StatefulWidget {
+  final Widget child;
+  final Widget Function(BuildContext context, F value1, S value2, Widget child) builder;
+
+  BaseView2({this.child, this.builder});
+
+  @override
+  State<StatefulWidget> createState() => _BaseView2State<F, S>();
+}
+
+class _BaseView2State<F extends BaseModel, S extends BaseModel> extends State<BaseView2<F, S>> {
+  F _first = getIt<F>();
+  S _second = getIt<S>();
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: <SingleChildCloneableWidget>[
+        ChangeNotifierProvider(builder: (context) => _first),
+        ChangeNotifierProvider(builder: (context) => _second)
+      ],
+      child: Consumer2<F, S>(
+        builder: widget.builder,
+        child: widget.child,
+      ),
+    );
+  }
+}

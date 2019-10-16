@@ -1,8 +1,18 @@
 {
   "@@locale": "zh",
-  "@@last_modified": "2019-10-15T19:10:28.345885",
+  "@@last_modified": "2019-10-16T11:55:09.161561",
   "settingsLabel": "设置",
   "@settingsLabel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "switchLanguageLabel": "切换语言",
+  "@switchLanguageLabel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "switchThemeLabel": "切换主题",
+  "@switchThemeLabel": {
     "type": "text",
     "placeholders": {}
   }

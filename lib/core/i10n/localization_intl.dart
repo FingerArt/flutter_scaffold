@@ -20,6 +20,8 @@ class L {
   static const delegate = AppLocalizationsDelegate();
 
   String get settingsLabel => Intl.message('设置', name: 'settingsLabel');
+  String get switchLanguageLabel => Intl.message('切换语言', name: 'switchLanguageLabel');
+  String get switchThemeLabel => Intl.message('切换主题', name: 'switchThemeLabel');
 }
 
 //Locale代理类

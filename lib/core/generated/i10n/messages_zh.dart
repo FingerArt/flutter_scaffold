@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "settingsLabel" : MessageLookupByLibrary.simpleMessage("设置")
+    "settingsLabel" : MessageLookupByLibrary.simpleMessage("设置"),
+    "switchLanguageLabel" : MessageLookupByLibrary.simpleMessage("切换语言"),
+    "switchThemeLabel" : MessageLookupByLibrary.simpleMessage("切换主题")
   };
 }
