@@ -21,19 +21,19 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl:
-  json_annotation: ^2.4.0
+  intl: any
+  json_annotation: ">=2.4.0 <5.0.0"
   get_it: ^3.0.0+1
   provider: ^3.1.0
-  dio: ^2.1.16
+  dio: ">=2.1.16 <6.0.0"
   logger: ^0.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  intl_translation:
-  build_runner: ^1.6.1
-  json_serializable: ^3.1.0
+  intl_translation: any
+  build_runner: ">=1.6.1 <3.0.0"
+  json_serializable: ">=3.1.0 <7.0.0"
 
 
 # For information on the generic Dart part of this file, see the
